@@ -1,0 +1,83 @@
+@import "@catppuccin/palette/style";
+
+@font-face {
+  font-family: 'Symbols Only';
+  src: url("./assets/fonts/Symbols.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 18px;
+  color: var(--text-primary);
+  --background: var(--ctp-macchiato-base);
+  --surface: var(--ctp-macchiato-mantle);
+  --text-primary: var(--ctp-macchiato-text);
+  --text-border: var(--ctp-macchiato-lavender);
+  --accent: var(--ctp-macchiato-lavender);
+}
+
+body {
+  min-height: 100vh;
+  min-width: 100%;
+  background-color: var(--surface);
+  font-family: 'Symbols Only', 'Courier New', Courier, monospace;
+}
+
+.App {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  width: 100%;
+  padding: 1.2em;
+  background-color: var(--background);
+}
+
+header a, a:visited {
+  font-size: 1.2em;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+header a:hover {
+  opacity: 0.8;
+}
+
+header a:active {
+  opacity: 0.7;
+}
+
+main {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+
+  /* background-color: var(--surface); */
+}
+
+footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0.5em;
+  background-color: var(--background);
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+button:active {
+  opacity: 0.7;
+}
