@@ -9,14 +9,14 @@ const Reader = ({bookUrl}) => {
     setLocation(epubcifi)
   }
   return (
-    <div style={{ height: '100vh' }}>
+    <div style={{height: '100vh'}}>
       <ReactReader
         location={location}
         locationChanged={locationChanged}
         epubOptions={{
           allowPopups: true
         }}
-        url="http://localhost/WtC.epub"
+        url = {bookUrl}
       />
     </div>
   )

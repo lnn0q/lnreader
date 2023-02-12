@@ -2,11 +2,12 @@
     "books": [
       {
         "id": 1,
-        "title": "MobyDick",
-        "author": "Some Random Guy",
-        "description": "Big Moby starts his business...",
-        "book_tags": ["romance"],
-        "book_src": "http://192.168.1.20/WtC.epub"
+        "title": "WtC",
+        "author": "Some Guy",
+        "description": "The story about...",
+        "book_tags": ["adventure, fantasy, lit-rpg, romance"],
+        "book_src": "http://localhost:80/Worth-the-Candle.epub",
+        "cover_src": ""
       }
     ]
 }
