@@ -14,7 +14,9 @@ const Reader = ({bookUrl}) => {
         location={location}
         locationChanged={locationChanged}
         epubOptions={{
-          allowPopups: true
+          allowPopups: true,
+          flow: 'scrolled',
+          manager: 'continuous'
         }}
         url = {bookUrl}
       />
