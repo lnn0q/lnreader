@@ -8,6 +8,17 @@
         "book_tags": ["adventure, fantasy, lit-rpg, romance"],
         "book_src": "http://localhost:80/Worth-the-Candle.epub",
         "cover_src": ""
+      },
+      {
+        "id": 2,
+        "title": "Alice",
+        "author": "Some Guy",
+        "description": "The story about...",
+        "book_tags": ["adventure, fantasy, lit-rpg, romance"],
+        "book_src": "https://react-reader.metabits.no/files/alice.epub",
+        "cover_src": ""
       }
     ]
 }
+
+

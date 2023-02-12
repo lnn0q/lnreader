@@ -9,7 +9,7 @@ const Content = () => {
   const [bookUrl, setBookUrl] = useState('');
   const [isReading, setIsReading] = useState(false);
 
-  const apiUrl = 'http://localhost:3500/books/'
+  const apiUrl = 'http://192.168.68.109:3500/books/'
 
   useEffect(() => {
     const fetchBooks = async () => {
