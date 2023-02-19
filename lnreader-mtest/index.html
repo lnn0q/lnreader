@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<script defer>
+  
+  const displayXhtmlDocument = async (url = '', elId = '', errMsg = null) => {
+    try {
+        //fetching response data
+        const response = await fetch(url);
+        if(!response.ok) throw Error('Retrieving failed.');
+        //extracting xhtml
+        const xhtml = await response.text();
+        //parsing xhtml 
+        const parser = new DOMParser();
+        const xmlFile = await parser.parseFromString(xhtml, 'application/xhtml+xml');
+        //output
+        const xmlBody = await xmlFile.getElementsByTagName('body')[0];
+        console.log(xmlBody.innerHTML);
+        document.getElementById(elId).innerHTML = xmlBody.innerHTML;
+    } catch (err) {
+        errMsg = err.message;
+        console.log(errMsg);
+    } finally {
+        return errMsg;
+    }
+  }
+
+  let xmlContainer = 'di1';
+  let xmlLink = '';
+  displayXhtmlDocument('http://localhost/Worth%20the%20Candle_split_000.xhtml', xmlContainer);
+</script>
+<body>
+	<div id="di1"></div>
+</body>
+</html>

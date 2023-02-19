@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react'
-import { ReactReaderStyle, ReactReader, EpubView } from 'react-reader'
+import { ReactReaderStyle, ReactReader } from 'react-reader'
+import style from 'react-reader/lib/ReactReader/style'
 
 const Reader = ({bookUrl}) => {
   // And your own state logic to persist state
@@ -32,25 +33,70 @@ const Reader = ({bookUrl}) => {
     accent: '#b7bdf8'
   }
 
+  const ownStyles = {
+    ...ReactReaderStyle,
+    arrow: {
+      ...ReactReaderStyle.arrow,
+      // display: 'none'
+    },
+    readerArea: {
+      ...ReactReaderStyle.readerArea,
+      backgroundColor: `${ccDark.background}`,
+      color: `${ccDark.textPrimary}`
+    },
+    tocButton: {
+      // ...ReactReaderStyle.tocButton,
+      position: 'absolute',
+      right: '50px',
+      top: '20px',
+      width: '20px',
+      backgroundColor: `${ccDark.background}`,
+      color: `${ccDark.background}`
+    },
+    tocButtonExpanded: {},
+    // tocBackground: {
+    //   // ...ReactReaderStyle.tocBackground,
+    //   color: `${ccDark.background}`,
+    //   backgroundColor: `${ccDark.background}`,
+    // },
+    tocAreaButton: {
+      ...ReactReaderStyle.tocAreaButton,
+      backgroundColor: `${ccDark.background}`,
+      color: `${ccDark.textPrimary}`,
+    },
+  }
+
   return (
     <div style={{height: '100%', width: '100%'}}>
-    <EpubView
-      url={bookUrl}
-      epubOptions={{
+      <ReactReader
+        url = {bookUrl}
+        epubInitOptions={{
+          openAs: 'epub'
+        }}
+        location={location}
+        locationChanged={locationChanged}
+        epubOptions={{
           allowPopups: true,
-          flow: 'scrolled',
-          manager: 'continuous'
-      }}
-      getRendition={(rendition) => {
-        rendition.themes.register('custom', {
-          "*": {
-            color: `${ccDark.textPrimary}`,
-          },
-        })
-        rendition.themes.select('custom')
-      }}
-      locationChanged={locationChanged}
-    />
+          // flow: 'scrolled',
+          // manager: 'continuous'
+        }}
+        readerStyles={ownStyles}
+        getRendition={(rendition) => {
+          rendition.themes.register('custom', {
+            "*": {
+              color: `${ccDark.textPrimary}`,
+              padding: "0 !important",
+              margin: '0 !important'
+            },
+            p: {
+              // 'font-family': 'Helvetica, sans-serif',
+              'font-weight': '400',
+              'font-size': '20px',
+            }
+          })
+          rendition.themes.select('custom')
+        }}
+      />
     </div>
   )
 }
