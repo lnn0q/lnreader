@@ -24,11 +24,7 @@ const Reader = ({ url }) => {
     fetchXhtmlDocument();
   }, [url]);
 
-  return (
-    <div id="r-reader" style={{ padding: "20px" }}>
-      {errMsg && <p>{errMsg}</p>}
-    </div>
-  );
+  return <div id="r-reader">{errMsg && <p>{errMsg}</p>}</div>;
 };
 
 export default Reader;

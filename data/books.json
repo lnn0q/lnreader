@@ -6,7 +6,7 @@
         "author": "Some Guy",
         "description": "The story about...",
         "book_tags": ["adventure, fantasy, lit-rpg, romance"],
-        "book_src": "http://localhost:80/Worth-the-Candle.epub",
+        "book_src": "http://localhost/Worth%20the%20Candle_split_002.xhtml",
         "cover_src": ""
       },
       {
