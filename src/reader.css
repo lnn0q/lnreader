@@ -1,0 +1,13 @@
+.heading {
+    font-size: 26px;
+}
+
+.endnote-link,
+.endnote-link a {
+    font-size: 14px;
+    font-style: italic;
+}
+
+.endnote-link a {
+    color: lightblue !important;
+}

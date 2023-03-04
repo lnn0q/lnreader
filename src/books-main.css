@@ -1,0 +1,28 @@
+.booksGrid {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+.bookPreviewContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border: 1px solid var(--ctp-macchiato-lavender);
+    border-radius: 20px;
+    gap: 5px;
+}
+
+.bookPreviewContainer label {
+    max-width: 130px;
+    height: 2.5em;
+}
+
+.bookCoverContainer {
+    width: 158px;
+    height: 220px;
+    border: 0px;
+    /* border: 1px solid var(--ctp-macchiato-lavender); */
+    border-radius: 12px;
+}
+

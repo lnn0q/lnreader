@@ -1,3 +1,4 @@
+import "./reader.css";
 import React, { useEffect, useState } from "react";
 
 const Reader = ({ url }) => {

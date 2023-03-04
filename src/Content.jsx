@@ -1,3 +1,4 @@
+import "./books-main.css";
 import React, { useState, useEffect } from "react";
 import Reader from "./Reader";
 
@@ -9,6 +10,8 @@ const Content = () => {
   const [isReading, setIsReading] = useState(false);
 
   const apiUrl = "http://localhost:3500/books/";
+  const bookCoverFallback =
+    "https://www.royalroad.com/dist/img/nocover-new-min.png";
 
   useEffect(() => {
     const fetchBooks = async () => {
@@ -48,9 +51,14 @@ const Content = () => {
         <main className="booksGrid">
           {books.map((book) => (
             <div className="bookPreviewContainer" key={book.id}>
-              <div className="coverContainer">
-                <img src={book.cover_src} />
-              </div>
+              <img
+                className="bookCoverContainer"
+                src={
+                  book.cover_src.length !== 0
+                    ? book.cover_src
+                    : bookCoverFallback
+                }
+              />
               <label>{book.title}</label>
               <button
                 onClick={() => {

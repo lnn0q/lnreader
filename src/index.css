@@ -77,6 +77,14 @@ footer {
   background-color: var(--background);
 }
 
+button {
+    padding: 10px 25px;
+    color: var(--ctp-macchiato-lavender);
+    background-color: var(--ctp-macchiato-base);
+    border: 2px solid var(--ctp-macchiato-lavender);
+    border-radius: 10px;
+}
+
 button:hover {
   opacity: 0.8;
 }
