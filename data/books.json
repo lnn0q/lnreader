@@ -6,7 +6,7 @@
         "author": "Some Guy",
         "description": "The story about...",
         "book_tags": ["adventure, fantasy, lit-rpg, romance"],
-        "book_src": "http://localhost:5175/wtc_u/Worth the Candle_split_002.xhtml",
+        "book_src": "http://localhost:5175/wtc_u/",
         "cover_src": "https://www.royalroadcdn.com/public/covers-full/25137-worth-the-candle.jpg?time=1644954836"
       },
       {
@@ -14,8 +14,8 @@
         "title": "Alice",
         "author": "Some Guy",
         "description": "The story about...",
-        "book_tags": ["adventure, fantasy, lit-rpg, romance"],
-        "book_src": "https://react-reader.metabits.no/files/alice.epub/",
+        "book_tags": ["adventure, fantasy, romance"],
+        "book_src": "http://localhost:5175/wtc_u/",
         "cover_src": ""
       }
     ]

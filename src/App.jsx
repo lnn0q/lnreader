@@ -34,23 +34,26 @@ function App() {
   }, []);
 
   return (
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <Home
-            isLoading={isLoading}
-            fetchError={fetchError}
-            books={books}
-            bookCoverFallback={bookCoverFallback}
-          />
-        }
-      />
-      <Route
-        path="/book/:id"
-        element={<Reader isLoading={isLoading} books={books} />}
-      />
-    </Routes>
+    <>
+      <Header />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Home
+              isLoading={isLoading}
+              fetchError={fetchError}
+              books={books}
+              bookCoverFallback={bookCoverFallback}
+            />
+          }
+        />
+        <Route
+          path="/book/:id"
+          element={<Reader isLoading={isLoading} books={books} />}
+        />
+      </Routes>
+    </>
   );
 }
 

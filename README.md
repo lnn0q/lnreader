@@ -18,11 +18,13 @@ _It is currently in development, but you can try the test-version without the ba
 
 ### Current tasks:
 
-1. Finish the API;
+0. Finish the API;
 
-2. Add 'Upload/Delete' buttons for lib;
+1. Add 'Upload/Delete' buttons for lib;
 
-3. Add 'Prev/Next' buttons;
+2. ~~Add React Router support~~;
+
+3. ~~Add 'Prev/Next' buttons~~;
 
 4. Add bookmarking;
 
