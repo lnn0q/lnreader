@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 
 const Reader = ({ books }) => {
   const { id } = useParams();
+  const [isLoading, setIsLoading] = useState(true);
   const [errMsg, setErrMsg] = useState(null);
   const [bookUrl, setBookUrl] = useState(null);
   const [bookChapters, setBookChapters] = useState([]);
@@ -39,6 +40,7 @@ const Reader = ({ books }) => {
         }
       } catch (err) {
         setErrMsg(err.message);
+        console.log(err.message);
       }
     };
 
@@ -46,9 +48,9 @@ const Reader = ({ books }) => {
   }, [books, bookUrl]);
 
   useEffect(() => {
-    const fetchXhtmlDocument = async (currentChapter) => {
+    const fetchXhtmlDocument = async () => {
       try {
-        if (books) {
+        if (books && bookChapters[currentChapter]) {
           const response = await fetch(
             bookUrl + bookChapters[currentChapter].href
           );
@@ -61,12 +63,14 @@ const Reader = ({ books }) => {
           );
           const xmlBody = xmlFile.getElementsByTagName("body")[0];
           document.getElementById("r-reader").innerHTML = xmlBody.innerHTML;
+          setIsLoading(false);
         }
       } catch (err) {
         setErrMsg(err.message);
+        console.log(err.message);
       }
     };
-    fetchXhtmlDocument(currentChapter);
+    fetchXhtmlDocument();
   }, [bookChapters, currentChapter]);
 
   return (
@@ -82,7 +86,7 @@ const Reader = ({ books }) => {
           margin: "10px",
         }}
       >
-        {currentChapter !== 0 ? (
+        {currentChapter !== 0 && !isLoading && !errMsg ? (
           <button
             onClick={() => {
               setCurrentChapter(currentChapter - 1);
@@ -92,7 +96,7 @@ const Reader = ({ books }) => {
             Prev
           </button>
         ) : null}
-        {currentChapter !== bookChapters.length ? (
+        {currentChapter !== bookChapters.length && !isLoading && !errMsg ? (
           <button
             onClick={() => {
               setCurrentChapter(currentChapter + 1);

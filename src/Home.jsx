@@ -31,23 +31,25 @@ const Home = ({ isLoading, fetchError, books, bookCoverFallback }) => {
       )}
       {fetchError && <p style={{ color: "red" }}>{`{$fetchError}`}</p>}
       {!isLoading && !fetchError && (
-        <main className="booksGrid">
-          {books.map((book) => (
-            <div className="bookPreviewContainer" key={book.id}>
-              <img
-                className="bookCoverContainer"
-                src={
-                  book.cover_src.length !== 0
-                    ? book.cover_src
-                    : bookCoverFallback
-                }
-              />
-              <label>{book.title}</label>
-              <Link to={`/book/${book.id}`}>
-                <button>Read</button>
-              </Link>
-            </div>
-          ))}
+        <main>
+          <div className="booksGrid">
+            {books.map((book) => (
+              <div className="bookPreviewContainer" key={book.id}>
+                <img
+                  className="bookCoverContainer"
+                  src={
+                    book.cover_src.length !== 0
+                      ? book.cover_src
+                      : bookCoverFallback
+                  }
+                />
+                <label>{book.title}</label>
+                <Link to={`/book/${book.id}`}>
+                  <button>Read</button>
+                </Link>
+              </div>
+            ))}
+          </div>
         </main>
       )}
     </div>
