@@ -6,8 +6,6 @@
 }
 
 * {
-  /* margin: 0; */
-  /* padding: 0; */
   box-sizing: border-box;
 }
 
@@ -65,8 +63,6 @@ main {
   align-items: center;
   justify-content: center;
   flex-grow: 1;
-
-  /* background-color: var(--surface); */
 }
 
 footer {
@@ -83,6 +79,7 @@ button {
     background-color: var(--ctp-macchiato-base);
     border: 2px solid var(--ctp-macchiato-lavender);
     border-radius: 10px;
+    font-size: 1em;
 }
 
 button:hover {
@@ -91,4 +88,52 @@ button:hover {
 
 button:active {
   opacity: 0.7;
+}
+
+/*Books-main*/
+
+.booksGrid {
+    height:80vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 20px;
+    gap: 16px;
+}
+
+.bookPreviewContainer {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border: 1px solid var(--ctp-macchiato-lavender);
+    border-radius: 20px;
+    gap: 5px;
+}
+
+.bookPreviewContainer label {
+    max-width: 130px;
+    height: 2.5em;
+}
+
+.bookCoverContainer {
+    width: 158px;
+    height: 220px;
+    border: 0px;
+    border-radius: 12px;
+}
+
+/* Reader */
+
+.heading {
+    font-size: 26px;
+}
+
+.endnote-link,
+.endnote-link a {
+    font-size: 14px;
+    font-style: italic;
+}
+
+.endnote-link a {
+    color: lightblue !important;
 }

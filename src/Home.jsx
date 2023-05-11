@@ -1,20 +1,10 @@
-import "./books-main.css";
 import { Link } from "react-router-dom";
 
-import Reader from "./Reader";
-
 const Home = ({ isLoading, fetchError, books, bookCoverFallback }) => {
-  // const readerOpen = (bookSrc) => {
-  // setBookUrl(bookSrc);
-  // setIsReading(true);
-  // };
   return (
     <div
       style={{
         height: "100vh",
-        // display: "flex",
-        // justifyContent: "center",
-        // padding: "20px",
       }}
     >
       {isLoading && (

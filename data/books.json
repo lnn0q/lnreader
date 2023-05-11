@@ -11,40 +11,13 @@
       },
       {
         "id": 2,
-        "title": "Alice",
+        "title": "Worth the Candle",
         "author": "Some Guy",
         "description": "The story about...",
         "book_tags": ["adventure, fantasy, romance"],
         "book_src": "http://localhost:5175/wtc_u/",
         "cover_src": ""
-      },      
-      {
-        "id": 3,
-        "title": "Alice",
-        "author": "Some Guy",
-        "description": "The story about...",
-        "book_tags": ["adventure, fantasy, romance"],
-        "book_src": "http://localhost:5175/wtc_u/",
-        "cover_src": ""
-      },
-      {
-        "id": 4,
-        "title": "Alice",
-        "author": "Some Guy",
-        "description": "The story about...",
-        "book_tags": ["adventure, fantasy, romance"],
-        "book_src": "http://localhost:5175/wtc_u/",
-        "cover_src": ""
-      },
-      {
-        "id": 5,
-        "title": "Alice",
-        "author": "Some Guy",
-        "description": "The story about...",
-        "book_tags": ["adventure, fantasy, romance"],
-        "book_src": "http://localhost:5175/wtc_u/",
-        "cover_src": ""
-      } 
+      }     
     ]
 }
 

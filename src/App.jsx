@@ -1,17 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Header from "./Header";
-import Login from "./Login/Login";
 import Home from "./Home";
-import Footer from "./Footer";
 import Reader from "./Reader";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [fetchError, setFetchError] = useState(null);
   const [books, setBooks] = useState("");
-  const [bookUrl, setBookUrl] = useState("");
-  // const [isReading, setIsReading] = useState(false);
 
   const apiUrl = "http://192.168.88.178:5174/books/";
   const bookCoverFallback =
