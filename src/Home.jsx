@@ -1,16 +1,13 @@
-import { Link } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
+import BookAdd from "./BookAdd";
 
 const Home = ({ isLoading, fetchError, books, bookCoverFallback }) => {
   return (
-    <div
-      style={{
-        height: "100vh",
-      }}
-    >
+    <>
       {isLoading && (
         <p
           style={{
-            color: "green",
+            color: "#a6da95",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
@@ -19,7 +16,7 @@ const Home = ({ isLoading, fetchError, books, bookCoverFallback }) => {
           Loading your books...
         </p>
       )}
-      {fetchError && <p style={{ color: "red" }}>{`{$fetchError}`}</p>}
+      {fetchError && <p style={{ color: "#ed8796" }}>{`{$fetchError}`}</p>}
       {!isLoading && !fetchError && (
         <main>
           <div className="booksGrid">
@@ -40,9 +37,17 @@ const Home = ({ isLoading, fetchError, books, bookCoverFallback }) => {
               </div>
             ))}
           </div>
+          <Link to="add-book">
+            <button className="addBook-button">
+              <div className="addBook-icon">&#xf0eed;</div>
+            </button>
+          </Link>
+          <Routes>
+            <Route path="add-book" element={<BookAdd />} />
+          </Routes>
         </main>
       )}
-    </div>
+    </>
   );
 };
 

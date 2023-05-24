@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-const Reader = ({ books }) => {
+const Reader = ({ books, apiUrl }) => {
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [errMsg, setErrMsg] = useState(null);
@@ -14,7 +14,9 @@ const Reader = ({ books }) => {
       try {
         if (books) {
           books.forEach((book) =>
-            id === "" + book.id ? setBookUrl(book.book_src + "") : null
+            id === "" + book.id
+              ? setBookUrl(apiUrl + ":5175/" + book.book_src)
+              : null
           );
         }
         if (bookUrl) {

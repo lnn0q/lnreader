@@ -6,7 +6,7 @@
         "author": "Some Guy",
         "description": "The story about...",
         "book_tags": ["adventure, fantasy, lit-rpg, romance"],
-        "book_src": "http://localhost:5175/wtc_u/",
+        "book_src": "wtc_u/",
         "cover_src": "https://www.royalroadcdn.com/public/covers-full/25137-worth-the-candle.jpg?time=1644954836"
       },
       {
@@ -15,7 +15,7 @@
         "author": "Some Guy",
         "description": "The story about...",
         "book_tags": ["adventure, fantasy, romance"],
-        "book_src": "http://localhost:5175/wtc_u/",
+        "book_src": "wtc_u/",
         "cover_src": ""
       }     
     ]

@@ -74,12 +74,12 @@ footer {
 }
 
 button {
-    padding: 10px 25px;
-    color: var(--ctp-macchiato-lavender);
-    background-color: var(--ctp-macchiato-base);
-    border: 2px solid var(--ctp-macchiato-lavender);
-    border-radius: 10px;
-    font-size: 1em;
+  padding: 10px 25px;
+  color: var(--ctp-macchiato-lavender);
+  background-color: var(--surface);
+  border: 2px solid var(--ctp-macchiato-lavender);
+  border-radius: 10px;
+  font-size: 1em;
 }
 
 button:hover {
@@ -96,7 +96,7 @@ button:active {
     height:80vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: 20px;
+    padding: 40px;
     gap: 16px;
 }
 
@@ -120,6 +120,73 @@ button:active {
     height: 220px;
     border: 0px;
     border-radius: 12px;
+}
+
+/* Books-main - AddBook*/
+
+.addBook-button {
+    position: fixed;
+    bottom: 30px;
+    right: 52px;
+    width: 70px;
+    height: 70px;
+    padding: 0;
+    margin: 0;
+    background-color: var(--ctp-macchiato-peach);
+    border: none;
+    border-radius: 35px;
+ }
+
+.addBook-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-45%, -50%);
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    font-family: 'Symbols Only';
+}
+
+.addBook-modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.addBook-modal-in {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: var(--background);
+    border: solid var(--ctp-macchiato-peach) 2px;
+    border-radius: 14px;
+    gap: 5px;
+}
+
+.addBook-modal label {
+    font-weight: bold;
+}
+
+.addBook-button-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.addBook-modal button {
+    width: 80px;
+    padding: 10px 0;
+    background-color: var(--background);
 }
 
 /* Reader */
