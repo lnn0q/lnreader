@@ -1,7 +1,15 @@
 import { Routes, Route, Link } from "react-router-dom";
 import BookAdd from "./BookAdd";
 
-const Home = ({ isLoading, fetchError, books, bookCoverFallback }) => {
+const Home = ({
+  isLoading,
+  fetchError,
+  books,
+  bookCoverFallback,
+  apiUrl,
+  portHTTP,
+  portFTP,
+}) => {
   return (
     <>
       {isLoading && (
@@ -25,8 +33,8 @@ const Home = ({ isLoading, fetchError, books, bookCoverFallback }) => {
                 <img
                   className="bookCoverContainer"
                   src={
-                    book.cover_src.length !== 0
-                      ? book.cover_src
+                    book.cover_src !== null
+                      ? apiUrl + portFTP + book.cover_src
                       : bookCoverFallback
                   }
                 />
@@ -43,7 +51,10 @@ const Home = ({ isLoading, fetchError, books, bookCoverFallback }) => {
             </button>
           </Link>
           <Routes>
-            <Route path="add-book" element={<BookAdd />} />
+            <Route
+              path="add-book"
+              element={<BookAdd apiUrl={apiUrl} portHTTP={portHTTP} />}
+            />
           </Routes>
         </main>
       )}

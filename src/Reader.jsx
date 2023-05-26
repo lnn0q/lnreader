@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-const Reader = ({ books, apiUrl }) => {
+const Reader = ({ books, apiUrl, portFTP }) => {
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [errMsg, setErrMsg] = useState(null);
@@ -15,7 +15,7 @@ const Reader = ({ books, apiUrl }) => {
         if (books) {
           books.forEach((book) =>
             id === "" + book.id
-              ? setBookUrl(apiUrl + ":5175/" + book.book_src)
+              ? setBookUrl(apiUrl + portFTP + book.folder_src + "/")
               : null
           );
         }

@@ -14,13 +14,13 @@ Your handy e-pub lib&amp;reader for your browser!
 
 
 
-_It is currently in development, but you can try the test-version without the backend trough emulating it with **http-server** and **json-server** **(make sure to install them before proceeding or run using npx)**. To start the preview run "./test-run.sh" from your projects folder. It is pretty raw but soon enough you'll be able to see the full version._
+_It is currently in development, but you can try the test-version without the backend trough emulating it with **http-server** and **json-server** **(make sure to install them before proceeding or run using npx)**. To start the preview run "./test-run.sh" from your projects folder. ~~It is pretty raw but soon enough you'll be able to see the full version.~~_
 
 ### Current tasks:
 
-0. Finish the API;
+0. ~~Finish the API~~;
 
-1. Add 'Upload/Delete' buttons for lib;
+1. Add '~~Upload~~/Delete' buttons for lib;
 
 2. ~~Add React Router support~~;
 
@@ -33,5 +33,6 @@ _It is currently in development, but you can try the test-version without the ba
 6. 'Edit' button for lib;
 
 7. Merge with backend repo.
+
 
 

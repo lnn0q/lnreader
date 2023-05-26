@@ -1,19 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const BookAdd = ({ apiUrl }) => {
+const BookAdd = ({ apiUrl, portHTTP }) => {
   const [bookFile, setBookFile] = useState(null);
 
   const postBook = async () => {
     try {
       const bookData = new FormData();
-      bookData.append("title", null);
-      bookData.append("author", null);
-      bookData.append("book_tags", [7]);
-      bookData.append("cover_src", null);
-      bookData.append("folder_src", null);
       bookData.append("book_src", bookFile);
-      const response = await fetch(apiUrl + "api/v1/bookpost", {
+      const response = await fetch(apiUrl + portHTTP + "/api/v1/bookpost/", {
         method: "POST",
         body: bookData,
       });
@@ -22,7 +17,6 @@ const BookAdd = ({ apiUrl }) => {
       console.log(err.message);
     }
   };
-
   return (
     <div className="addBook-modal">
       <div className="addBook-modal-in">
