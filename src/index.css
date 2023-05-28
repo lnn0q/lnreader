@@ -94,13 +94,16 @@ button:active {
 
 .booksGrid {
     height:80vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
     padding: 40px;
     gap: 16px;
 }
 
 .bookPreviewContainer {
+    position: relative;
     height: fit-content;
     display: flex;
     flex-direction: column;
@@ -113,6 +116,7 @@ button:active {
 .bookPreviewContainer label {
     max-width: 130px;
     height: 2.5em;
+    overflow: hidden;
 }
 
 .bookCoverContainer {
@@ -189,6 +193,51 @@ button:active {
     background-color: var(--background);
 }
 
+/* Books-main - AddBook*/
+
+.removeBook-button {
+    position: fixed;
+    bottom: 105px;
+    right: 32px;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    margin: 0;
+    background-color: var(--ctp-macchiato-maroon);
+    border: none;
+    border-radius: 35px;
+ }
+
+.removeBook-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-45%, -50%);
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Symbols Only';
+}
+
+.removeBook-conf {
+    right: 92px;
+    background-color: var(--ctp-macchiato-green);
+}
+
+.removeBook-decl {
+    right: 32px;
+    background-color: var(--ctp-macchiato-red);
+}
+
+.removeBook-checkbox {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 25px;
+    height: 25px;
+    background-color: var(--ctp-macchiato-red);
+}
+
 /* Reader */
 
 .heading {
@@ -203,4 +252,9 @@ button:active {
 
 .endnote-link a {
     color: lightblue !important;
+}
+
+@media screen and (max-width: 515px){
+    .booksGrid {
+    }
 }

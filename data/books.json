@@ -1,24 +1,15 @@
 {
-    "books": [
-      {
-        "id": 1,
-        "title": "Worth the Candle",
-        "author": "Some Guy",
-        "description": "The story about...",
-        "book_tags": ["adventure, fantasy, lit-rpg, romance"],
-        "book_src": "wtc_u/",
-        "cover_src": "https://www.royalroadcdn.com/public/covers-full/25137-worth-the-candle.jpg?time=1644954836"
-      },
-      {
-        "id": 2,
-        "title": "Worth the Candle",
-        "author": "Some Guy",
-        "description": "The story about...",
-        "book_tags": ["adventure, fantasy, romance"],
-        "book_src": "wtc_u/",
-        "cover_src": ""
-      }     
-    ]
+  "books": [
+    {
+      "id": 1,
+      "title": "Worth the Candle",
+      "author": "Some Guy",
+      "description": "The story about...",
+      "book_tags": [
+        "adventure, fantasy, lit-rpg, romance"
+      ],
+      "folder_src": "/wtc_u",
+      "cover_src": "/wtc_u/wtc_cover.jpg"
+    }
+  ]
 }
-
-

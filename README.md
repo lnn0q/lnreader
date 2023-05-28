@@ -2,8 +2,10 @@
 
 ### Preview:
 
-![readerPreview](https://github.com/lnn0q/lnreader/blob/main/preview/lnreader.mp4)
-
+![readerPreview-home](https://github.com/lnn0q/lnreader/blob/main/preview/img-home.png)
+![readerPreview-addbook](https://github.com/lnn0q/lnreader/blob/main/preview/img-addbook.png)
+![readerPreview-delbook](https://github.com/lnn0q/lnreader/blob/main/preview/img-delbook.png)
+![readerPreview-read](https://github.com/lnn0q/lnreader/blob/main/preview/img-read.png)
 <!-- <video width="320" height="240" controls> -->
   <!-- <source src="./preview/lnreader.mp4" type="video/mp4"> -->
 <!-- </video> -->
@@ -20,7 +22,7 @@ _It is currently in development, but you can try the test-version without the ba
 
 0. ~~Finish the API~~;
 
-1. Add '~~Upload~~/Delete' buttons for lib;
+1. ~~Add 'Upload/Delete' buttons for lib~~;
 
 2. ~~Add React Router support~~;
 

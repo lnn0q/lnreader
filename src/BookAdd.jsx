@@ -1,18 +1,19 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const BookAdd = ({ apiUrl, portHTTP }) => {
+const BookAdd = ({ fetchBooks, apiUrl, portHTTP, endpointPOST }) => {
   const [bookFile, setBookFile] = useState(null);
 
   const postBook = async () => {
     try {
       const bookData = new FormData();
       bookData.append("book_src", bookFile);
-      const response = await fetch(apiUrl + portHTTP + "/api/v1/bookpost/", {
+      const response = await fetch(apiUrl + portHTTP + endpointPOST, {
         method: "POST",
         body: bookData,
       });
       if (!response.ok) throw Error("Failed recieve data");
+      fetchBooks();
     } catch (err) {
       console.log(err.message);
     }

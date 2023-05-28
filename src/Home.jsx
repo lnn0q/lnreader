@@ -9,6 +9,12 @@ const Home = ({
   apiUrl,
   portHTTP,
   portFTP,
+  isRemoveMode,
+  setRemoveMode,
+  handleRemoveCheck,
+  handleConfirmRemove,
+  handleDeclineRemove,
+  endpointPOST,
 }) => {
   return (
     <>
@@ -42,9 +48,47 @@ const Home = ({
                 <Link to={`/book/${book.id}`}>
                   <button>Read</button>
                 </Link>
+                {isRemoveMode ? (
+                  <input
+                    type={"checkbox"}
+                    className="removeBook-checkbox"
+                    onChange={() => {
+                      handleRemoveCheck(book.id);
+                    }}
+                  />
+                ) : null}
               </div>
             ))}
           </div>
+          {!isRemoveMode ? (
+            <button
+              className="removeBook-button"
+              onClick={() => {
+                setRemoveMode(true);
+              }}
+            >
+              <div className="removeBook-icon">&#xf0a97;</div>
+            </button>
+          ) : (
+            <>
+              <button
+                className="removeBook-button removeBook-conf"
+                onClick={() => {
+                  handleConfirmRemove();
+                }}
+              >
+                <div className="removeBook-icon">&#xf00c;</div>
+              </button>
+              <button
+                className="removeBook-button removeBook-decl"
+                onClick={() => {
+                  handleDeclineRemove();
+                }}
+              >
+                <div className="removeBook-icon">&#xf00d;</div>
+              </button>
+            </>
+          )}
           <Link to="add-book">
             <button className="addBook-button">
               <div className="addBook-icon">&#xf0eed;</div>
@@ -53,7 +97,13 @@ const Home = ({
           <Routes>
             <Route
               path="add-book"
-              element={<BookAdd apiUrl={apiUrl} portHTTP={portHTTP} />}
+              element={
+                <BookAdd
+                  apiUrl={apiUrl}
+                  portHTTP={portHTTP}
+                  endpointPOST={endpointPOST}
+                />
+              }
             />
           </Routes>
         </main>
