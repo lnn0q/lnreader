@@ -4,6 +4,7 @@ import BookAdd from "./BookAdd";
 const Home = ({
   isLoading,
   fetchError,
+  fetchBooks,
   books,
   bookCoverFallback,
   apiUrl,
@@ -99,6 +100,7 @@ const Home = ({
               path="add-book"
               element={
                 <BookAdd
+                  fetchBooks={fetchBooks}
                   apiUrl={apiUrl}
                   portHTTP={portHTTP}
                   endpointPOST={endpointPOST}
