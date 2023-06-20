@@ -12,19 +12,19 @@ function App() {
   const [isRemoveMode, setRemoveMode] = useState(false);
   const [removeChecked, setRemoveChecked] = useState(new Set());
 
-  const apiUrl = "http://192.168.88.178:";
-  const portHTTP = "5050";
-  const portFTP = "5051";
-  const endpointGET = "/books/";
-  const endpointPOST = "";
-  const endpointDELETE = "/books/";
-
-  // const apiUrl = "http://192.168.88.178:";
+  // const apiUrl = "http://192.168.88.199:";
   // const portHTTP = "5050";
   // const portFTP = "5051";
-  // const endpointGET = "/api/v1/booklist/";
-  // const endpointPOST = "/api/v1/bookpost/";
-  // const endpointDELETE = "/api/v1/bookdelete/";
+  // const endpointGET = "/books/";
+  // const endpointPOST = "";
+  // const endpointDELETE = "/books/";
+
+  const apiUrl = "http://192.168.88.199:";
+  const portHTTP = "5050";
+  const portFTP = "5051";
+  const endpointGET = "/api/v1/booklist/";
+  const endpointPOST = "/api/v1/bookpost/";
+  const endpointDELETE = "/api/v1/bookdelete/";
 
   const bookCoverFallback =
     "https://www.royalroad.com/dist/img/nocover-new-min.png";

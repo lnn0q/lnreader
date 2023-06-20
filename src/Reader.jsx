@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const Reader = ({ books, apiUrl, portFTP }) => {
   const { id } = useParams();
@@ -7,10 +7,11 @@ const Reader = ({ books, apiUrl, portFTP }) => {
   const [errMsg, setErrMsg] = useState(null);
   const [bookUrl, setBookUrl] = useState(null);
   const [bookChapters, setBookChapters] = useState([]);
+  const [dirPath, setDirPath] = useState(null);
   const [currentChapter, setCurrentChapter] = useState(0);
 
   useEffect(() => {
-    const fetchChapters = async () => {
+    const fetchDirPath = async () => {
       try {
         if (books) {
           books.forEach((book) =>
@@ -20,7 +21,35 @@ const Reader = ({ books, apiUrl, portFTP }) => {
           );
         }
         if (bookUrl) {
-          const response = await fetch(bookUrl + "toc.ncx");
+          const response = await fetch(bookUrl + "META-INF/container.xml");
+          if (!response.ok) throw Error("Retrieving failed.");
+          const xml = await response.text();
+          const parser = new DOMParser();
+          const containerXml = parser.parseFromString(xml, "application/xml");
+          let rootfile = containerXml.querySelector("rootfile");
+          let pathContent = rootfile.getAttribute("full-path");
+          if (pathContent.includes("/")) {
+            setDirPath(
+              pathContent.slice(0, pathContent.indexOf("content.opf"))
+            );
+          } else {
+            setDirPath("");
+          }
+        }
+      } catch (err) {
+        setErrMsg(err.message);
+        console.log(err.message);
+      }
+    };
+
+    fetchDirPath();
+  }, [books, bookUrl]);
+
+  useEffect(() => {
+    const fetchChapters = async () => {
+      try {
+        if (bookUrl) {
+          const response = await fetch(bookUrl + dirPath + "toc.ncx");
           if (!response.ok) throw Error("Retrieving failed.");
           const xml = await response.text();
           const parser = new DOMParser();
@@ -46,14 +75,14 @@ const Reader = ({ books, apiUrl, portFTP }) => {
     };
 
     fetchChapters();
-  }, [books, bookUrl]);
+  }, [dirPath]);
 
   useEffect(() => {
     const fetchXhtmlDocument = async () => {
       try {
         if (books && bookChapters[currentChapter]) {
           const response = await fetch(
-            bookUrl + bookChapters[currentChapter].href
+            bookUrl + dirPath + bookChapters[currentChapter].href
           );
           if (!response.ok) throw Error("Retrieving failed.");
           const xhtml = await response.text();
@@ -97,7 +126,10 @@ const Reader = ({ books, apiUrl, portFTP }) => {
             Prev
           </button>
         ) : null}
-        {currentChapter !== bookChapters.length && !isLoading && !errMsg ? (
+        {currentChapter + 1 !== bookChapters.length &&
+        bookChapters.length !== 1 &&
+        !isLoading &&
+        !errMsg ? (
           <button
             onClick={() => {
               setCurrentChapter(currentChapter + 1);
@@ -106,6 +138,11 @@ const Reader = ({ books, apiUrl, portFTP }) => {
           >
             Next
           </button>
+        ) : null}
+        {currentChapter + 1 === bookChapters.length && !isLoading && !errMsg ? (
+          <Link to="/home">
+            <button>Finish</button>
+          </Link>
         ) : null}
       </nav>
     </>
